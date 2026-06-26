@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>TechSales Auth</title></head>
+<body>
+<script>
+  const hash = window.location.hash.substring(1);
+  const params = new URLSearchParams(hash);
+  const token = params.get('access_token');
+  if (token) {
+    document.body.innerHTML = '<div style="font-family:Arial;direction:rtl;text-align:center;margin-top:50px;padding:20px"><h2>✅ تم تسجيل الدخول بنجاح!</h2><p>انسخ هذا التوكن والصقه في التطبيق:</p><textarea onclick="this.select()" style="width:90%;height:120px;font-size:11px;padding:10px;direction:ltr">' + token + '</textarea><br><br><button onclick="navigator.clipboard.writeText(\'' + token + '\')" style="padding:12px 30px;background:#7c3aed;color:white;border:none;border-radius:8px;font-size:16px;cursor:pointer">📋 نسخ التوكن</button></div>';
+  } else {
+    document.body.innerHTML = '<div style="font-family:Arial;text-align:center;margin-top:50px"><p>لم يتم العثور على توكن</p></div>';
+  }
+</script>
+</body>
+</html>
